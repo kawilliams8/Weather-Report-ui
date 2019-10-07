@@ -12,10 +12,12 @@ class App extends Component {
 
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/forecasts")
-    .then(response => console.log('hi', response))
+    .then(response => response.json())
+    .then(data => this.setState({forecasts: data.forecasts}))
   }
 
   render() {
+    console.log('in render', this.state.forecasts)
     return (
       <div className="App">
         <header className="App-header">
