@@ -11,9 +11,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/v1/forecasts")
-    .then(response => response.json())
-    .then(data => this.setState({forecasts: data.forecasts}))
+    fetch(process.env.REACT_APP_BACKEND_URL + "/api/v1/forecasts")
+      .then(response => response.json())
+      .then(data => this.setState({ forecasts: data.forecasts }));
   }
 
   render() {
